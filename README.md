@@ -2,7 +2,7 @@
 
 PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to set up and use.
 
-Visit http://pip.dev7studios.com for more infomration and documentation.
+Visit [http://pip.dev7studios.com](http://pip.dev7studios.com) for more infomration and documentation.
 
 ## Requirements
 
@@ -19,7 +19,7 @@ Visit http://pip.dev7studios.com for more infomration and documentation.
 
 ## Documentation
 
-Visit http://pip.dev7studios.com to see the documentation.
+Visit [http://pip.dev7studios.com](http://pip.dev7studios.com) to see the documentation.
 
 ## License
 
