@@ -1,77 +1,200 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-
-  <title>gilbitron/PIP @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #ffffff;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-    h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #000000; }
-    h3 { text-align: center; color: #000000; }
-    a { color: #000000; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-  </style>
+    <meta charset='utf-8'>
+    
+    <title>PIP - A tiny PHP application framework</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 </head>
-
 <body>
-  <a href="http://github.com/gilbitron/PIP"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
 
-  <div id="container">
+    <div id="container">
 
-    <div class="download">
-      <a href="http://github.com/gilbitron/PIP/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/gilbitron/PIP/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+        <h1><a href="http://github.com/gilbitron/PIP">PIP</a></h1>
+
+        <div class="description">
+            <p>PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as 
+            simple as possible to set up and use.</p>
+        </div>
+
+        <h2 id="requirements">Requirements</h2>
+        <ul>
+            <li>PHP 5.1 or greater</li>
+            <li>MySQL 4.1.2 or greater</li>
+            <li>The mod_rewrite Apache module</li>
+        </ul>
+        
+        <h2 id="download">Download</h2>
+        <p>You can download the latest version of PIP in either <a href="http://github.com/gilbitron/PIP/zipball/master">zip</a> or
+        <a href="http://github.com/gilbitron/PIP/tarball/master">tar</a> formats.</p>
+        <p>You can also clone the project with <a href="http://git-scm.com">Git</a> by running:</p>
+        <pre>$ git clone git://github.com/gilbitron/PIP</pre>
+        
+        <h2 id="installation">Installation</h2>
+        <ul>
+            <li>Download PIP and extract</li>
+            <li>Open the root <code>.htaccess</code> and change <code>RewriteBase</code> if required</li>
+            <li>Navigate to <code>application/config/config.php</code> and fill in your <code>base_url</code>
+            </li>
+            <li>You are ready to rock! Point your browser to your <code>base_url</code> and hopefully see a welcome message.</li>
+        </ul>
+
+        <h2 id="documentation">Documentation</h2>
+        
+        <h3 id="mvc">Model-View-Controller</h3>
+        <p>PIP is based on the Model-View-Controller development pattern. MVC is a software approach that separates 
+        application logic from presentation. In practice, it permits your web pages to contain minimal scripting since 
+        the presentation is separate from the PHP scripting.</p>
+        <ul>
+            <li><strong>The Model</strong> represents your data structures. Typically your model classes will contain functions that help 
+            you retrieve, insert, and update information in your database.</li>
+            <li><strong>The View</strong> is the information that is being presented to a user. A View will normally be a web page, but can be
+            any type of "page".</li>
+            <li><strong>The Controller</strong> serves as an intermediary between the Model, the View, and any other resources needed to process 
+            the HTTP request and generate a web page.</li>
+        </ul>
+        
+        <h3 id="urls">URL Structure</h3>
+        <p>By default, URLs in PIP are designed to be search-engine and human friendly. Rather than using the standard 
+        "query string" approach to URLs that is synonymous with dynamic systems, PIP uses a segment-based approach:</p>
+        
+        <pre>example.com/class/function/param</pre>
+        
+        <p>By default <code>index.php</code> is hidden in the URL. This is done using the <code>.htaccess</code> file
+        in the root directory.</p>
+        
+        <h3 id="controllers">Controllers</h3>
+        <p>Controllers are the driving force of a PIP application. As you can see from the <a href="#urls">URL structure</a>, segments of
+        the URL are mapped to a class and function. These classes are controllers stored in the "application/controller" directory. So
+        for example the URL...</p>
+        
+        <pre>example.com/auth/login</pre>
+        
+        <p>...would map to the following Controller with the filename <code>auth.php</code>:</p>
+        
+        <pre>&lt;?php
+
+class Auth extends Controller {
+
+    function index()
+    {
+        // This is the default function (i.e. no function is set in the URL)
+    }
+    
+    function login()
+    {
+        echo 'Hello World!';
+    }
+
+}
+
+?&gt;</pre>
+
+        <p>...and the output would be "Hello World!".</p>
+        
+        <p>The default controller and error controller can be set in <code>application/config/config.php</code></p>
+        
+        <p>Note that if you need to declare a contructor you must also call the parent constructor like:</p>
+        
+        <pre>&lt;?php
+
+class Example extends Controller {
+
+    public function __construct()
+    {
+        parent::__construct();
+        // Your own constructor code
+    }
+
+}
+
+?&gt;</pre>
+
+        <p>There are severl helper functions that can also be used in controllers. Most of these functions take the parameter <code>$name</code>
+        of the corresponding class:</p>
+        <ul>
+            <li><code>loadModel($name)</code> - Load a model</li>
+            <li><code>loadView($name)</code> - Load a view</li>
+            <li><code>loadPlugin($name)</code> - Load a plugin</li>
+            <li><code>loadHelper($name)</code> - Load a helper</li>
+            <li><code>redirect($location)</code> - Redirect to a page without having to include the base URL. E.g:
+            <pre>$this->redirect('some_class/some_function');</pre>
+            </li>
+        </ul>
+        
+        <h3 id="views">Views</h3>
+        <p>In PIP a view is simply a web page. They can contain everything a normal web page would include. Views are almost
+        always loaded by <a href="#controllers">Controllers</a>. So for example if you had a view called <code>main_view.php</code> that
+        contained the following HTML:</p>
+        
+        <pre>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;My Site&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;h1&gt;Welcome to my Site!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+        <p>... you would load it in a controller by doing the following:</p>
+        
+        <pre>&lt;?php
+
+class Main extends Controller {
+	
+    function index()
+    {
+        $template = $this->loadView('main_view');
+        $template->render();
+    }
+    
+}
+
+?&gt;</pre>
+
+        <p>The View class has a helper function called <code>set($key, $val)</code> that allows you to pass variables from the Controller to the View.</p>
+        
+        <pre>$template = $this->loadView('main_view');
+$template->set('someval', 200);
+$template->render();</pre>
+
+        <p>...then in the view you could do:</p>
+        
+        <pre>&lt;?php echo $someval; ?&gt;</pre>
+        
+        <p>...and the output would be <code>200</code>. Any kind of PHP variable can be passed to a view in this way.</p>
+        
+        <h3 id="models">Models</h3>
+        <p>In PIP models are classes whose sole responsiblity it is to deal with data (usually from a database). For example:</p>
+        
+        <pre>&lt;?php
+
+class Example_model extends Model {
+	
+    public function getSomething($id)
+    {
+        $id = $this->escapeString($id);
+        $result = $this->query('SELECT * FROM something WHERE id="'. $id .'"');
+        return $result;
+    }
+
+}
+
+?&gt;</pre>
+        
+        ...then in a controller you would do:
+        
+        <pre>$example = $this->loadModel('Example_model');
+$something = $example->getSomething($id);</pre>
+
+        <div class="footer">
+            <p>Created by <a href="http://gilbert.pellegrom.me/">Gilbert Pellegrom</a> from <a href="http://dev7studios.com/">Dev7studios</a></p>
+        </div>
+
     </div>
 
-    <h1><a href="http://github.com/gilbitron/PIP">PIP</a>
-      <span class="small">by <a href="http://github.com/gilbitron">gilbitron</a></span></h1>
-
-    <div class="description">
-      A tiny PHP application framework.
-    </div>
-
-    <h2>Authors</h2>
-<p>gilbitron (drummermanny@gmail.com)<br/><br/>      </p>
-<h2>Contact</h2>
-<p>Gilbert Pellegrom (drummermanny@gmail.com)<br/>      </p>
-
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/gilbitron/PIP/zipball/master">zip</a> or
-      <a href="http://github.com/gilbitron/PIP/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/gilbitron/PIP</pre>
-    </p>
-
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/gilbitron/PIP">gilbitron/PIP</a>
-    </div>
-
-  </div>
-
-  
 </body>
 </html>
