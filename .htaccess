@@ -6,4 +6,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?_url=$1 [L]
 </IfModule>
 
+# Prevent file browsing
 Options -Indexes
