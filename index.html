@@ -74,9 +74,9 @@
         </ul>
         <p>When PIP loads files it assumes they are in the corresponding folders. So make sure you place your files in the correct folders.</p>
         
-        <p>Note that when including resource files in Views (CSS, JS etc) you can put them anywhere but the path must match the location
-        of the files. For example if you put your resource files in sub-folders within the "views" folder then the path to these files will
-        be something like: <code>http://example.com/application/views/scripts/example.js</code>.</p>
+        <p>We encourage you to use the "static" folder in the root to store you static resource files (CSS, JS etc) however you can put them 
+        anywhere. You can also use the <code>BASE_URL</code> variable to help include files in your HTML. For example:</p>
+        <pre><code>&lt;link rel="stylesheet" href="&lt;?php echo BASE_URL; ?&gt;static/style.css" type="text/css" media="screen" /&gt;</code></pre>
         
         <h3 id="naming">Naming Conventions</h3>
         <p>All classes in PIP use <a href="http://c2.com/cgi/wiki?PascalCase">PascalCase</a> naming. The associated file names must be
