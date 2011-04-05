@@ -16,5 +16,3 @@ class Url_helper {
 	}
 	
 }
-
-?>

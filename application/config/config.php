@@ -9,5 +9,3 @@ $config['db_host'] = ''; // Database host (e.g. localhost)
 $config['db_name'] = ''; // Database name
 $config['db_username'] = ''; // Database username
 $config['db_password'] = ''; // Database password
-
-?>

@@ -39,5 +39,3 @@ function pip()
 	$obj = new $controller;
     die($obj->$action());
 }
-
-?>

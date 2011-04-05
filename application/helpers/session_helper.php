@@ -18,5 +18,3 @@ class Session_helper {
 	}
 
 }
-
-?>

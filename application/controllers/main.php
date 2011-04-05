@@ -9,5 +9,3 @@ class Main extends Controller {
 	}
     
 }
-
-?>
