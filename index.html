@@ -4,8 +4,8 @@
     <meta charset='utf-8'>
     
     <title>PIP - A tiny PHP application framework</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="PIP is a tiny PHP application framework built for people who use a LAMP stack.">
+    <meta name="author" content="Gilbert Pellegrom">
     
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 </head>
@@ -13,10 +13,10 @@
 
     <div id="container">
 
-        <h1><a href="http://github.com/gilbitron/PIP">PIP</a></h1>
+        <h1 id="title"><a href="http://github.com/gilbitron/PIP">PIP</a></h1>
 
-        <div class="description">
-            <p>PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as 
+        <div class="intro">
+            <p>PIP is a tiny PHP application framework built for people who use a LAMP stack. PIP aims to be as 
             simple as possible to set up and use.</p>
         </div>
 
@@ -31,7 +31,7 @@
         <p>You can download the latest version of PIP in either <a href="http://github.com/gilbitron/PIP/zipball/master">zip</a> or
         <a href="http://github.com/gilbitron/PIP/tarball/master">tar</a> formats.</p>
         <p>You can also clone the project with <a href="http://git-scm.com">Git</a> by running:</p>
-        <pre>$ git clone git://github.com/gilbitron/PIP</pre>
+        <pre><code>$ git clone git://github.com/gilbitron/PIP</code></pre>
         
         <h2 id="installation">Installation</h2>
         <ul>
@@ -43,6 +43,9 @@
         </ul>
 
         <h2 id="documentation">Documentation</h2>
+        <p>PIP is very similar in it's architecture to <a href="http://codeigniter.com/">CodeIgniter</a> and will likely look
+        very familiar to you if you already have experince with CodeIgniter. However remember that PIP is a tiny framework
+        and does not include a lot of the functionality that comes with CodeIgniter.</p>
         
         <h3 id="mvc">Model-View-Controller</h3>
         <p>PIP is based on the Model-View-Controller development pattern. MVC is a software approach that separates 
@@ -57,11 +60,34 @@
             the HTTP request and generate a web page.</li>
         </ul>
         
+        <h3 id="folder">Folder Structure</h3>
+        <p>With MVC in mind the physical layout of PIP is fairly simple. Your application specific files go in the "application"
+        folder (you don't need to touch the system folder). Inside the application folder there are folders for all of the specific
+        application entities:</p>
+        <ul>
+            <li>config</li>
+            <li>controllers</li>
+            <li>helpers</li>
+            <li>models</li>
+            <li>plugins</li>
+            <li>views</li>
+        </ul>
+        <p>When PIP loads files it assumes they are in the corresponding folders. So make sure you place your files in the correct folders.</p>
+        
+        <p>Note that when including resource files in Views (CSS, JS etc) you can put them anywhere but the path must match the location
+        of the files. For example if you put your resource files in sub-folders within the "views" folder then the path to these files will
+        be something like: <code>http://example.com/application/views/scripts/example.js</code>.</p>
+        
+        <h3 id="naming">Naming Conventions</h3>
+        <p>All classes in PIP use <a href="http://c2.com/cgi/wiki?PascalCase">PascalCase</a> naming. The associated file names must be
+        the same except all lower case. So for example the class <code>ThisIsAClass</code> would have the filename <code>thisisaclass.php</code>.
+        Underscores in classes must be included in file names as well.</p>
+        
         <h3 id="urls">URL Structure</h3>
         <p>By default, URLs in PIP are designed to be search-engine and human friendly. Rather than using the standard 
         "query string" approach to URLs that is synonymous with dynamic systems, PIP uses a segment-based approach:</p>
         
-        <pre>example.com/class/function/param</pre>
+        <pre><code>example.com/class/function/param</code></pre>
         
         <p>By default <code>index.php</code> is hidden in the URL. This is done using the <code>.htaccess</code> file
         in the root directory.</p>
@@ -71,11 +97,11 @@
         the URL are mapped to a class and function. These classes are controllers stored in the "application/controller" directory. So
         for example the URL...</p>
         
-        <pre>example.com/auth/login</pre>
+        <pre><code>example.com/auth/login</code></pre>
         
         <p>...would map to the following Controller with the filename <code>auth.php</code>:</p>
         
-        <pre>&lt;?php
+        <pre><code>&lt;?php
 
 class Auth extends Controller {
 
@@ -91,7 +117,7 @@ class Auth extends Controller {
 
 }
 
-?&gt;</pre>
+?&gt;</code></pre>
 
         <p>...and the output would be "Hello World!".</p>
         
@@ -99,7 +125,7 @@ class Auth extends Controller {
         
         <p>Note that if you need to declare a contructor you must also call the parent constructor like:</p>
         
-        <pre>&lt;?php
+        <pre><code>&lt;?php
 
 class Example extends Controller {
 
@@ -111,9 +137,9 @@ class Example extends Controller {
 
 }
 
-?&gt;</pre>
+?&gt;</code></pre>
 
-        <p>There are severl helper functions that can also be used in controllers. Most of these functions take the parameter <code>$name</code>
+        <p>There are several helper functions that can also be used in controllers. Most of these functions take the parameter <code>$name</code>
         of the corresponding class:</p>
         <ul>
             <li><code>loadModel($name)</code> - Load a model</li>
@@ -121,7 +147,7 @@ class Example extends Controller {
             <li><code>loadPlugin($name)</code> - Load a plugin</li>
             <li><code>loadHelper($name)</code> - Load a helper</li>
             <li><code>redirect($location)</code> - Redirect to a page without having to include the base URL. E.g:
-            <pre>$this->redirect('some_class/some_function');</pre>
+            <pre><code>$this->redirect('some_class/some_function');</code></pre>
             </li>
         </ul>
         
@@ -130,18 +156,18 @@ class Example extends Controller {
         always loaded by <a href="#controllers">Controllers</a>. So for example if you had a view called <code>main_view.php</code> that
         contained the following HTML:</p>
         
-        <pre>&lt;html&gt;
+        <pre><code>&lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;My Site&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-	&lt;h1&gt;Welcome to my Site!&lt;/h1&gt;
+    &lt;h1&gt;Welcome to my Site!&lt;/h1&gt;
 &lt;/body&gt;
-&lt;/html&gt;</pre>
+&lt;/html&gt;</code></pre>
 
         <p>... you would load it in a controller by doing the following:</p>
         
-        <pre>&lt;?php
+        <pre><code>&lt;?php
 
 class Main extends Controller {
 	
@@ -153,24 +179,24 @@ class Main extends Controller {
     
 }
 
-?&gt;</pre>
+?&gt;</code></pre>
 
         <p>The View class has a helper function called <code>set($key, $val)</code> that allows you to pass variables from the Controller to the View.</p>
         
-        <pre>$template = $this->loadView('main_view');
+        <pre><code>$template = $this->loadView('main_view');
 $template->set('someval', 200);
-$template->render();</pre>
+$template->render();</code></pre>
 
         <p>...then in the view you could do:</p>
         
-        <pre>&lt;?php echo $someval; ?&gt;</pre>
+        <pre><code>&lt;?php echo $someval; ?&gt;</code></pre>
         
         <p>...and the output would be <code>200</code>. Any kind of PHP variable can be passed to a view in this way.</p>
         
         <h3 id="models">Models</h3>
         <p>In PIP models are classes whose sole responsiblity it is to deal with data (usually from a database). For example:</p>
         
-        <pre>&lt;?php
+        <pre><code>&lt;?php
 
 class Example_model extends Model {
 	
@@ -183,18 +209,83 @@ class Example_model extends Model {
 
 }
 
-?&gt;</pre>
+?&gt;</code></pre>
         
         ...then in a controller you would do:
         
-        <pre>$example = $this->loadModel('Example_model');
-$something = $example->getSomething($id);</pre>
+        <pre><code>function index()
+{
+    $example = $this->loadModel('Example_model');
+    $something = $example->getSomething($id);
+    
+    $template = $this->loadView('main_view');
+    $template->set('someval', $something);
+    $template->render();
+}</code></pre>
 
-        <div class="footer">
-            <p>Created by <a href="http://gilbert.pellegrom.me/">Gilbert Pellegrom</a> from <a href="http://dev7studios.com/">Dev7studios</a></p>
-        </div>
+        <p>Now the results of your database query would be available in your view in <code>$someval</code>.
+        Note that in the above code there are no steps to connect to the database. That is because this is done automatically. For this
+        to work you must provide your database details in <code>config.php</code>:</p>
+        
+        <pre><code>$config['db_host'] = ''; // Database host (e.g. localhost)
+$config['db_name'] = ''; // Database name
+$config['db_username'] = ''; // Database username
+$config['db_password'] = ''; // Database password</code></pre>
+
+        <p>There are several helper functions that can also be used in models:</p>
+        <ul>
+            <li><code>query($query)</code> - Returns an array of results from a query</li>
+            <li><code>execute($query)</code> - Returns the direct result from a query</li>
+            <li><code>escapeString($string)</code> - Escape strings before using them in queries</li>
+        </ul>
+
+        <h3 id="helpersplugins">Helpers &amp; Plugins</h3>
+        <p>There are two types of additional resources you can use in PIP.</p>
+        <ul>
+            <li><strong>Helpers</strong> are classes which you can use that don't fall under the category of "controllers". These
+            will usually be classes that provide extra functionality that you can use in your controllers. PIP ships with two
+            helper classes (<code>Session_helper</code> and <code>Url_helper</code>) which are examples of how to use helpers.</li>
+            <li><strong>Plugins</strong> are literally any PHP files and can provide any functionality you want. By loading a plugin
+            you are simply including the PHP file from the "plugins" folder. This can be useful if you want to use third party 
+            libraries in your PIP application.</li>
+        </ul>
+
+        <footer>
+            <p>Released under the MIT license by <a href="http://gilbert.pellegrom.me/">Gilbert Pellegrom</a> from <a href="http://dev7studios.com/">Dev7studios</a></p>
+        </footer>
 
     </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {        
+        $('#container h2,#container h3').each(function(index) {
+            var title = $(this);
+            var thisId = this.id;
+            var text = title.text();
+            if(title.is('h3')) text = '- ' + text;
+            
+            $('<a></a>').attr({
+                'title': 'jump to ' + title.text(),
+                'href': '#' + thisId
+            }).text(text).appendTo('#page-contents div.links');
+        });
+    });
+    </script>
+    
+    <div id="page-contents">
+        <h3>PIP Contents</h3>
+        <div class="links"></div>
+        <div class="share-this">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="gilbitron">Tweet</a>
+            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            <div class="facebook-share-button">
+                <iframe src="http://www.facebook.com/plugins/like.php?href&amp;layout=button_count&amp;show_faces=false&amp;width=160&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:160px; height:21px;" allowTransparency="true"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <a href="https://github.com/gilbitron/PIP"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub"></a>
 
 </body>
 </html>

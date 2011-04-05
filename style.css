@@ -1,22 +1,205 @@
-body {
-    margin-top: 1.0em;
-    background-color: #ffffff;
-    font-family: Helvetica, Arial, FreeSans, san-serif;
-    color: #000000;
+/*=================================*/
+/* PIP
+/* April 2011
+/* By: Gilbert Pellegrom
+/* http://dev7studios.com
+/*=================================*/
+
+/*====================*/
+/*=== Reset Styles ===*/
+/*====================*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:100%;
+	font-family:inherit;
+	vertical-align:baseline;
 }
+body {
+	line-height:1;
+	color:black;
+	background:white;
+}
+table {
+	border-collapse:separate;
+	border-spacing:0;
+}
+caption, th, td {
+	text-align:left;
+	font-weight:normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content:"";
+}
+blockquote, q {
+	quotes:"" "";
+}
+/* HTML5 tags */
+header, section, footer,
+aside, nav, article, figure {
+	display: block;
+}
+
+/*===================*/
+/*=== Main Styles ===*/
+/*===================*/
+body {
+	font:14px/1.6 Helvetica, Arial, san-serif;
+	color:#333;
+	background:#fff;
+}
+
+a, a:visited {
+	color:#4183C4;
+	text-decoration:none;
+}
+a:hover, a:active {
+	color:#000;
+	text-decoration:none;
+    border-bottom:1px solid #4183C4;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height:1.2;
+    font-weight:bold;
+	margin-bottom:0.6em;
+}
+h1 { /* Assume used once for page title */
+	font-size:4.0em;
+}
+h2 { /* Assume used for page headings */
+	font-size:2.0em;
+    margin-top:2em;
+}
+h3 { /* Assume used for sub-headings */
+	font-size:1.5em;
+	margin-top:2em;
+}
+h4 {
+	font-size:1.5em;
+}
+h5 {
+	font-size:1.3em;
+}
+h6 {
+	font-size:1.2em;
+}
+p {
+	margin-bottom:1em;
+}
+
+ol, ul {
+	padding-left:30px;
+	margin-bottom:1em;
+}
+
+b, strong {
+	font-weight:bold;
+}
+i, em {
+	font-style:italic;
+}
+u {
+	text-decoration:underline;
+}
+abbr, acronym {
+	cursor:help;
+	border-bottom:.1em dotted;
+}
+td, td img { vertical-align:top; }
+sub { vertical-align:sub; font-size:smaller; }
+sup { vertical-align:super; font-size:smaller; }
+
+code {
+	font-family:Courier,"Courier New",Monaco,Tahoma;
+	color:#000;
+	padding:0px 2px;
+}
+pre {
+    overflow: auto;
+    padding: 20px 25px;
+    background: #fdfdfd;
+    text-shadow: white 0 1px 0;
+    margin-bottom:1em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-top: solid 1px #EEE;
+    border-left: solid 1px #E5E5E5;
+    border-right: solid 1px #E5E5E5;
+    border-bottom: solid 1px #D5D5D5;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+blockquote {
+	font-style:italic;
+	margin:0 0 1em 15px;
+	padding-left:10px;
+	border-left:5px solid #000;
+}
+
+/* hand cursor on clickable input elements */
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+/* make buttons play nice in IE:   
+    www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/*========================*/
+/*=== Structure Styles ===*/
+/*========================*/
 #container {
     margin: 0 auto;
     width: 700px;
 }
-h1 { font-size: 3.8em; color: #000000; margin-bottom: 3px; }
-h1 .small { font-size: 0.4em; }
-h1 a { text-decoration: none }
-h2 { font-size: 1.5em; color: #000000; }
-h3 { text-align: center; color: #000000; }
-a { color: #000000; }
-.description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-.download { float: right; }
-pre { background: #000; color: #fff; padding: 15px;}
-hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-.footer { text-align:center; padding-top:30px; font-style: italic; }
-li {margin-bottom:0.5em;}
+
+#title {
+    margin-top:50px;
+}
+#title a {
+    color:#333;
+    border:0;
+}
+
+.intro { 
+    font-size: 1.2em; 
+    font-style: italic;
+}
+
+footer {
+    font-size:13px;
+    text-align:center;
+    margin:3em 0;
+}
+
+#page-contents {
+    position:fixed;
+    right:0;
+    top:0;
+    width:160px;
+    padding:20px 20px 0 0;
+}
+#page-contents h3 {
+    margin:0 0 0.5em 0;
+    font-size:14px;
+}
+#page-contents a {
+    display:block;
+    border:0;
+}
+
+#page-contents .links {
+    margin-bottom:15px;
+} 
