@@ -13,7 +13,6 @@ Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) for mo
 ## Installation
 
 * Download PIP and extract
-* Open the root `.htaccess` and change `RewriteBase` if required
 * Navigate to `application/config/config.php` and fill in your `base_url`
 * You are ready to rock! Point your browser to your `base_url` and hopefully see a welcome message.
 
