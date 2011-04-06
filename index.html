@@ -36,9 +36,7 @@
         <h2 id="installation">Installation</h2>
         <ul>
             <li>Download PIP and extract</li>
-            <li>Open the root <code>.htaccess</code> and change <code>RewriteBase</code> if required</li>
-            <li>Navigate to <code>application/config/config.php</code> and fill in your <code>base_url</code>
-            </li>
+            <li>Navigate to <code>application/config/config.php</code> and fill in your <code>base_url</code></li>
             <li>You are ready to rock! Point your browser to your <code>base_url</code> and hopefully see a welcome message.</li>
         </ul>
 
@@ -76,7 +74,7 @@
         
         <p>We encourage you to use the "static" folder in the root to store you static resource files (CSS, JS etc) however you can put them 
         anywhere. You can also use the <code>BASE_URL</code> variable to help include files in your HTML. For example:</p>
-        <pre><code>&lt;link rel="stylesheet" href="&lt;?php echo BASE_URL; ?&gt;static/style.css" type="text/css" media="screen" /&gt;</code></pre>
+        <pre><code>&lt;link rel="stylesheet" href="&lt;?php echo BASE_URL; ?&gt;static/css/style.css" type="text/css" media="screen" /&gt;</code></pre>
         
         <h3 id="naming">Naming Conventions</h3>
         <p>All classes in PIP use <a href="http://c2.com/cgi/wiki?PascalCase">PascalCase</a> naming. The associated file names must be
@@ -257,6 +255,13 @@ $config['db_password'] = ''; // Database password</code></pre>
         </ul>
         
         <h2 id="changelog">Changelog</h2>
+        <p><strong>v0.5.2</strong> - Several changes:</p>
+        <ul>
+            <li>Removed the need to define <code>RewriteBase</code> in <code>.htaccess</code>.</li>
+            <li>Neater URL rewriting in <code>pip.php</code>.</li>
+            <li>New folders within the "static" folders for CSS, JS and images.</li>
+            <li>Moved <code>style.css</code> from Views folder to static folder and updated <code>header.php</code>.</li>
+        </ul>
         <p><strong>v0.5.1</strong> - Several changes:</p>
         <ul>
             <li>Added <code>BASE_URL</code> define.</li>
