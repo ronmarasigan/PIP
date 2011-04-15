@@ -17,6 +17,32 @@ class Model {
 		return mysql_real_escape_string($string);
 	}
 
+	public function escapeArray($array)
+	{
+	    array_walk_recursive( $array, create_function( '&$v', '$v = mysql_real_escape_string($v);'));
+		return $array;
+	}
+	
+	public function to_bool($val)
+	{
+	    return ($val) ? 'TRUE' : 'FALSE';
+	}
+	
+	public function to_date($val)
+	{
+	    return date('Y-m-d', $val);
+	}
+	
+	public function to_time($val)
+	{
+	    return date('H:i:s', $val);
+	}
+	
+	public function to_datetime($val)
+	{
+	    return date('Y-m-d H:i:s', $val);
+	}
+	
 	public function query($qry)
 	{
 		$result = mysql_query($qry) or die('MySQL Error: '. mysql_error());
