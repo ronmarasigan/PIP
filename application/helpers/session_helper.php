@@ -2,12 +2,12 @@
 
 class Session_helper {
 
-	function set_data($key, $val)
+	function set($key, $val)
 	{
 		$_SESSION["$key"] = $val;
 	}
 	
-	function get_data($key)
+	function get($key)
 	{
 		return $_SESSION["$key"];
 	}

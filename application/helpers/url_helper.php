@@ -12,7 +12,10 @@ class Url_helper {
 	{
 		$url = trim($_GET['_url'], '/');
 		$parts = explode('/', $url);
-		return $parts[$seg];
+        if(isset($parts[$seg]))
+            return $parts[$seg];
+        else
+            return false;
 	}
 	
 }
