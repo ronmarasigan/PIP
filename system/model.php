@@ -19,7 +19,7 @@ class Model {
 
 	public function escapeArray($array)
 	{
-	    array_walk_recursive( $array, create_function( '&$v', '$v = mysql_real_escape_string($v);'));
+	    array_walk_recursive($array, create_function('&$v', '$v = mysql_real_escape_string($v);'));
 		return $array;
 	}
 	
