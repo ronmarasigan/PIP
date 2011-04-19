@@ -16,7 +16,8 @@ class Main extends Controller {
     {
         // Load and render main view
 		$template = $this->load->view('main_view');
-		$template->render();
+		$template->set('title','Welcome to PIP assface');
+        $template->render();
 	}
     
 }

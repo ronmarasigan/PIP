@@ -13,7 +13,7 @@
 <head>
     <meta charset="utf-8" />
     
-    <title>Welcome to PIP</title>
+    <title><?php echo ( isset($title)) ? $title : ''; ?></title>
     <meta name="description" content="">
     <meta name="author" content="">
     
