@@ -1,3 +1,13 @@
+<?php
+/**
+ * Header View 
+ *
+ * This should be included at the top of all other views
+ *
+ * @author Gilbert Pellegrom
+ * @package PIP
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
