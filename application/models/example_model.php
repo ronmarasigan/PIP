@@ -11,7 +11,7 @@ class Example_model extends Model {
 	
     /**
      * A sample function to retieve data from the data base
-     * @param string $id An arbirary identifier
+     * @param string $id An arbitrary identifier
      * @param array
      */
 	public function getSomething($id)
