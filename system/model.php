@@ -25,7 +25,7 @@ class Model {
 	
 	public function to_bool($val)
 	{
-	    return ($val) ? 'TRUE' : 'FALSE';
+	    return !!$val;
 	}
 	
 	public function to_date($val)
