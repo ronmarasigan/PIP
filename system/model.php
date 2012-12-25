@@ -11,11 +11,22 @@ class Model extends PDO{
 			$dsn = "mysql:dbname={$config['db_name']};host={$config['db_host']}";
 			$this->connection = parent::__construct($dsn, $config['db_username'], $config['db_password']);
 			parent::setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			return array('success'=>true, 'data'=> $this->connection);
+			return array(true, $this->connection);
 		}
 		catch(PDOException $e){
-			return array('success'=>false, 'error'=> $e->getMessage());
+			return array(false, $e->getMessage());
 		}
+	}
+
+	//deprecated
+	public function escapeString($string){
+		return mysql_real_escape_string($string);
+	}
+
+	//deprecated
+	public function escapeArray($array){
+	    array_walk_recursive($array, create_function('&$v', '$v = mysql_real_escape_string($v);'));
+		return $array;
 	}
 	
 	public function to_bool($val){
@@ -39,10 +50,10 @@ class Model extends PDO{
 			$pdo = $this->prepare($qry);
 			$pdo->execute($params);
 
-			return array('success'=>true, 'data'=> $pdo->fetchAll(PDO::FETCH_OBJ));
+			return array(true, $pdo->fetchAll(PDO::FETCH_OBJ));
 		}
 		catch(PDOException $e){
-			return array('success'=>false, 'error'=> $e->getMessage());
+			return array(false, $e->getMessage());
 		}
 
 	}
@@ -51,10 +62,10 @@ class Model extends PDO{
 		try{
 			$pdo = $this->prepare($qry);
 			$pdo->execute($params);
-			return array('success'=>true, 'data'=> $pdo->rowCount());
+			return array(true, $pdo->rowCount());
 		}
 		catch(PDOException $e){
-			return array('success'=>false, 'error'=> $e->getMessage());
+			return array(false, $e->getMessage());
 		}
 	}
     
