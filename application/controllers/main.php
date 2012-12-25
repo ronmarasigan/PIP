@@ -16,7 +16,7 @@ class Main extends Controller {
 			$this->render(array('data'=>$response[1]));
 		}
 		else{
-			$this->render(array('data'=>array(), 'error'=> $response[1]);	
+			$this->render(array('data'=>array(), 'error'=> $response[1]));	
 		}
 	}
     
