@@ -21,6 +21,6 @@ require(ROOT_DIR .'system/pip.php');
 global $config;
 define('BASE_URL', $config['base_url']);
 
-pip();
+new pip();
 
 ?>
