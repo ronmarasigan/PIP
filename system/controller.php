@@ -2,6 +2,38 @@
 
 class Controller {
 	
+	function __construct()
+	{
+		$this->autoload();
+	}
+	
+	private function autoload()
+	{
+		global $config;
+		
+		foreach( $config['autoload'] as $type => $payload )
+		{
+			$funcName = 'load' . ucfirst( substr($type, 0, -1) );
+			
+			if( is_array($payload) )
+			{
+				foreach($payload as $toLoad)
+				{
+					if(method_exists($this,$funcName))
+					{
+						if( $type == 'helpers' )
+						{
+							$this->$toLoad = call_user_func(array($this, $funcName), $toLoad);
+						} elseif( $type == 'plugins' ) 
+						{
+							call_user_func(array($this, $funcName), $toLoad);
+						}
+					}
+				}
+			}
+		}
+	}
+
 	public function loadModel($name)
 	{
 		require(APP_DIR .'models/'. strtolower($name) .'.php');
