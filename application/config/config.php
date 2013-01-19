@@ -10,4 +10,9 @@ $config['db_name'] = ''; // Database name
 $config['db_username'] = ''; // Database username
 $config['db_password'] = ''; // Database password
 
+$config['autoload'] = array(
+  'plugins' => array(),
+	'helpers' => array('session_helper', 'url_helper')
+);
+
 ?>
