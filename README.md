@@ -23,3 +23,5 @@ Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) to see
 ## License
 
 PIP is released under the MIT license.
+
+Want to say thanks? [Consider tipping me](https://www.gittip.com/gilbitron).
