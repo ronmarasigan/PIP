@@ -1,6 +1,7 @@
 <?php 
 
-$config['base_url'] = ''; // Base URL including trailing slash (e.g. http://localhost/)
+$config['base_url'] = ''; // Base URL including trailing slash (e.g. http://localhost/) include all sub-folders
+$config['subfolders'] = ''; //Sub-folders, include this in base_url too
 
 $config['default_controller'] = 'main'; // Default controller to load
 $config['error_controller'] = 'error'; // Controller used for errors (e.g. 404, 500 etc)
