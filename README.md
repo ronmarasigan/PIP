@@ -1,5 +1,3 @@
-### This repo is no longer maintained. If you would like to take over ownership please [get in touch](mailto:gilbert@pellegrom.me).
-
 #PIP
 
 PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to set up and use.
