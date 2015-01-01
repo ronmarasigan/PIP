@@ -1,6 +1,6 @@
 <?php
 
-class Model {
+abstract class Model {
 
 	private $connection;
 
