@@ -3,7 +3,9 @@
     <div id="content">
         
         <h1>Welcome to QuickSilver</h1>
-        <p>Sample Page</p>
+        <p>
+        	<a href="sample/" > Sample Page with data from Model </a> </p>
+        	<a href="sample/home/?name=innocent" > Sample Page with Params </a> </p>
         
     </div>
 
