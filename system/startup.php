@@ -1,6 +1,6 @@
 <?php
 
-function pip()
+function init()
 {
 	global $config;
     
@@ -24,18 +24,18 @@ function pip()
 	if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
 
 	// Get our controller file
-    $path = APP_DIR . 'controllers/' . $controller . '.php';
+    $path = APP_DIR . 'controllers/' . $controller . 'Controller.php';
 	if(file_exists($path)){
         require_once($path);
 	} else {
         $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        require_once(APP_DIR . 'controllers/' . $controller . 'Controller.php');
 	}
     
     // Check the action exists
     if(!method_exists($controller, $action)){
         $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        require_once(APP_DIR . 'controllers/' . $controller . 'Controller.php');
         $action = 'index';
     }
 	

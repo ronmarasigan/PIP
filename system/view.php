@@ -7,7 +7,7 @@ class View {
 
 	public function __construct($template)
 	{
-		$this->template = APP_DIR .'views/'. $template .'.php';
+		$this->template = APP_DIR .'views/'. $template .'View.php';
 	}
 
 	public function set($var, $val)
