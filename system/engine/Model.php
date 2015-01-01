@@ -6,7 +6,7 @@ abstract class Model {
 
 	public function __construct()
 	{
-		global $config;
+		
 		
 		$this->connection = mysql_pconnect(Config::$Host, Config::$User,Config::$Password) or die('MySQL Error: '. mysql_error());
 		mysql_select_db(Config::$Database, $this->connection);

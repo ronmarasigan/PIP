@@ -6,19 +6,20 @@ function is_local() {
 			return true;
 		}
 		else return false;
-	}
+}
 
-function init()
-{
-	global $config;
-
-
-
+function config_override() {
 	if(is_local() && Config :: $enableLocalOverride) {
 	error_reporting( );
 	ConfigOverride :: __override();	
 	}
 	else error_reporting(0);
+}
+
+function init()
+{
+
+	config_override();
     
     // Set our defaults
     $controller = Config::$defaultController;

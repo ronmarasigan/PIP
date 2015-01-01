@@ -13,7 +13,6 @@ define('APP_DIR', ROOT_DIR .'application/');
 require(ROOT_DIR .'system/Loader.php');
 
 // Define base URL
-global $config;
 define('BASE_URL', Config::$URL);
 
 init();
