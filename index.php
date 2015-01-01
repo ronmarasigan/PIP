@@ -14,7 +14,7 @@ require(ROOT_DIR .'system/Loader.php');
 
 // Define base URL
 global $config;
-define('BASE_URL', $config['base_url']);
+define('BASE_URL', Config::$URL);
 
 init();
 

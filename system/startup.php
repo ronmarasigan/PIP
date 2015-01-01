@@ -1,11 +1,27 @@
 <?php
 
+function is_local() {
+		$serverList = array('localhost', '127.0.0.1');
+		if(in_array($_SERVER['HTTP_HOST'], $serverList)) {
+			return true;
+		}
+		else return false;
+	}
+
 function init()
 {
 	global $config;
+
+
+
+	if(is_local() && Config :: $enableLocalOverride) {
+	error_reporting( );
+	ConfigOverride :: __override();	
+	}
+	else error_reporting(0);
     
     // Set our defaults
-    $controller = $config['default_controller'];
+    $controller = Config::$defaultController;
     $action = 'index';
     $url = '';
 	
@@ -28,13 +44,13 @@ function init()
 	if(file_exists($path)){
         require_once($path);
 	} else {
-        $controller = $config['error_controller'];
+        $controller = Config::$errorController;
         require_once(APP_DIR . 'controllers/' . $controller . 'Controller.php');
 	}
     
     // Check the action exists
     if(!method_exists($controller, $action)){
-        $controller = $config['error_controller'];
+        $controller =  Config::$errorController;
         require_once(APP_DIR . 'controllers/' . $controller . 'Controller.php');
         $action = 'index';
     }
