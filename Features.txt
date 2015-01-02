@@ -1,0 +1,18 @@
+//IMPLEMENTED
+
+MVC Architecture
+SEO friendly routing
+Config and overrides
+
+
+
+//TO DO
+Caching
+Helpers
+Package Building
+Grunt
+Linting
+View templating
+AJAX Utils
+Utilities
+static content grouping and minification
