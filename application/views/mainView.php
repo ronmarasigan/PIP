@@ -6,6 +6,7 @@
         <p>
         	<a href="sample/" > Sample Page with data from Model </a> </p>
         	<a href="sample/home/?name=innocent" > Sample Page with Params </a> </p>
+        	<a href="sample/plugin" > Sample Page calling Plugins </a> </p>
         
     </div>
 

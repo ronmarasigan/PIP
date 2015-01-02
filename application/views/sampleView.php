@@ -6,6 +6,9 @@
         <p>Sample Page</p>
         
         Name from model: <?php echo $name; ?>
+
+       
     </div>
+
 
 <?php include('footer.php'); ?>

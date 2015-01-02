@@ -20,6 +20,16 @@ class Sample extends Controller {
 		$template->set('name', $name);
 		$template->render();
 	}
+
+	function plugin()
+	{
+		//Loading Plugins
+		$this->loadPlugin('strings');
+		
+		//Loading Template
+		$template = $this->loadView('plugin');
+		$template->render();
+	}
     
 }
 
