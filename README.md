@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #PIP
 
 PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to set up and use.
@@ -25,3 +26,9 @@ Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) to see
 PIP is released under the MIT license.
 
 Want to say thanks? [Consider tipping me](https://www.gittip.com/gilbitron).
+=======
+QuickSilver
+===========
+
+A Simple Lightweight PHP MVC Framework
+>>>>>>> 6200862b83e20d14c39180282d3bdba1768d71d7
