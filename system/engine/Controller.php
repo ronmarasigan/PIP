@@ -31,7 +31,7 @@ abstract class Controller {
 	public function redirect($loc)
 	{
 
-		header('Location: '. $config['base_url'] . $loc);
+		header('Location: '. Config::$URL . $loc);
 	}
     
 }

@@ -16,3 +16,5 @@ View templating
 AJAX Utils
 Utilities
 static content grouping and minification
+XSS Helpers
+JS Components (scroll to view, lazy loading, popup, product carousel)
