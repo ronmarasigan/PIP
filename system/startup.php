@@ -41,18 +41,18 @@ function init()
 	if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
 
 	// Get our controller file
-    $path = APP_DIR . 'controllers/' . $controller . 'Controller.php';
+    $path = APP_DIR . 'controllers/' . $controller . '.controller.php';
 	if(file_exists($path)){
         require_once($path);
 	} else {
         $controller = Config::$errorController;
-        require_once(APP_DIR . 'controllers/' . $controller . 'Controller.php');
+        require_once(APP_DIR . 'controllers/' . $controller . '.controller.php');
 	}
     
     // Check the action exists
     if(!method_exists($controller, $action)){
         $controller =  Config::$errorController;
-        require_once(APP_DIR . 'controllers/' . $controller . 'Controller.php');
+        require_once(APP_DIR . 'controllers/' . $controller . '.controller.php');
         $action = 'index';
     }
 	
