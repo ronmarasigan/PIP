@@ -1,6 +1,6 @@
 <?php
 
-class Controller {
+abstract class Controller {
 	
 	public function loadModel($name)
 	{
@@ -18,7 +18,7 @@ class Controller {
 	
 	public function loadPlugin($name)
 	{
-		require(APP_DIR .'plugins/'. strtolower($name) .'.php');
+		require(APP_DIR .'plugins/'. strtolower($name) .'.class.php');
 	}
 	
 	public function loadHelper($name)
@@ -30,9 +30,8 @@ class Controller {
 	
 	public function redirect($loc)
 	{
-		global $config;
-		
-		header('Location: '. $config['base_url'] . $loc);
+
+		header('Location: '. Config::$URL . $loc);
 	}
     
 }

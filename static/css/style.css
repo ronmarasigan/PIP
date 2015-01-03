@@ -1,1 +1,22 @@
 /* CSS Styles */
+
+.fk-ui-goTop {
+	color:#ffffff;
+    background: #B9B8B9;
+    color: #fff;
+    padding: 6px 5px 5px 10px;
+	width:52px;
+	position:fixed;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+	right:0;
+	bottom:75px;
+	line-height:26px;
+	cursor:pointer;
+    text-align:left;
+    border-radius: 5px 0 0 5px;
+	_position:absolute;/*hide in ie6,*/
+	_top:0px;
+    z-index: 1000;
+
+}

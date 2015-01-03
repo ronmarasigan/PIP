@@ -1,11 +1,28 @@
 <?php
 
-function pip()
+function is_local() {
+		$serverList = array('localhost', '127.0.0.1');
+		if(in_array($_SERVER['HTTP_HOST'], $serverList)) {
+			return true;
+		}
+		else return false;
+}
+
+function config_override() {
+	if(is_local() && Config :: $enableLocalOverride) {
+	error_reporting( );
+	ConfigOverride :: __override();	
+	}
+	else error_reporting(0);
+}
+
+function init()
 {
-	global $config;
+
+	config_override();
     
     // Set our defaults
-    $controller = $config['default_controller'];
+    $controller = Config::$defaultController;
     $action = 'index';
     $url = '';
 	
@@ -24,18 +41,18 @@ function pip()
 	if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
 
 	// Get our controller file
-    $path = APP_DIR . 'controllers/' . $controller . '.php';
+    $path = APP_DIR . 'controllers/' . $controller . '.controller.php';
 	if(file_exists($path)){
         require_once($path);
 	} else {
-        $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        $controller = Config::$errorController;
+        require_once(APP_DIR . 'controllers/' . $controller . '.controller.php');
 	}
     
     // Check the action exists
     if(!method_exists($controller, $action)){
-        $controller = $config['error_controller'];
-        require_once(APP_DIR . 'controllers/' . $controller . '.php');
+        $controller =  Config::$errorController;
+        require_once(APP_DIR . 'controllers/' . $controller . '.controller.php');
         $action = 'index';
     }
 	
