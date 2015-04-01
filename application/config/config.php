@@ -10,5 +10,5 @@ $config['db_name'] = ''; // Database name
 $config['db_username'] = ''; // Database username
 $config['db_password'] = ''; // Database password
 
-$config['valid_controllers'] = array('error', 'main',); // For each controller you create, add it here
+$config['valid_controllers'] = array('error', 'main'); // For each controller you create, add it here
 ?>
