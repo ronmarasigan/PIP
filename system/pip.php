@@ -23,9 +23,9 @@ function pip()
 	if(isset($segments[0]) && $segments[0] != '') $controller = $segments[0];
 	if(isset($segments[1]) && $segments[1] != '') $action = $segments[1];
 
-	// Get our controller file
+    // Get our controller file (and check it's valid to protect from LFI)
     $path = APP_DIR . 'controllers/' . $controller . '.php';
-	if(file_exists($path)){
+    if(in_array($controller, $config['valid_controllers']) && file_exists($path)) {
         require_once($path);
 	} else {
         $controller = $config['error_controller'];
