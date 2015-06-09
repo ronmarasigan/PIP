@@ -1,14 +1,12 @@
 <?php
     class Example extends Model {
-	    public function getSomething($id) {
+	    public function addID($id) {
             try {
-                $sql = 'SELECT product_name FROM product WHERE product_id = :id';
-                $db = $this->connection;
+                $sql = 'INSERT INTO id (id) VALUES (:id)';
+                $db = $this->getDB();
                 $stmt = $db->prepare($sql);
                 $stmt->bindParam('id', $id, PDO::PARAM_INT);
                 $stmt->execute();
-                $result = $stmt->fetchAll();
-                return $result;
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
