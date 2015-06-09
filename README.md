@@ -1,8 +1,8 @@
 #PIP
 
-PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to set up and use. 
+PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to setup and use. 
 
-This is Dushan's fork which features.
+This is Dushan's fork which features:
 
 * Security fix for a Local File Inclusion (credit LB)
 * Removal of redundant/legacy code
@@ -28,4 +28,4 @@ Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) for mo
 
 PIP is released under the MIT license.
 
-Credit to original author [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/).
+Credit to original author [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/)
