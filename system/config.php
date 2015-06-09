@@ -8,13 +8,8 @@
     } else {
         $config['base_url'] = 'http://'.$_SERVER['HTTP_HOST'].'/';
     }
-    
-    // Database
-    $config['db_host'] = '';
-    $config['db_name'] = '';
-    $config['db_user'] = '';
-    $config['db_pass'] = '';
 
-    // Controllers
+    // Database credentials and default/permitted controllers
+    require_once('db.php');
     require_once('controllers.php');
 ?>
