@@ -8,14 +8,14 @@
     global $config;
     define('BASE_URL', $config['base_url']);
 
-    // Secure session
-    // if(session_id() == '' || !isset($_SESSION)) {
-    //     session_name($config['session_name']);
-    //     session_set_cookie_params($lifetime = $config['cookie_lifetime'], $secure = $config['https_cookie'], $http_only = $config['http_only']);
-    //     session_start();
-    // } else {
-    //     session_start();
-    // }
+    /* Secure session
+    if(session_id() == '' || !isset($_SESSION)) {
+        session_name($config['session_name']);
+        session_set_cookie_params($lifetime = $config['cookie_lifetime'], $secure = $config['https_cookie'], $http_only = $config['http_only']);
+        session_start();
+    } else {
+        session_start();
+    } */
 
     // Start a session
     session_start(); 
