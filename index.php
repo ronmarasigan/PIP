@@ -8,7 +8,7 @@
     global $config;
     define('BASE_URL', $config['base_url']);
 
-    /* Secure session
+    /* Secure session (disabled as it does not function as intended, will be fixed in time)
     if(session_id() == '' || !isset($_SESSION)) {
         session_name($config['session_name']);
         session_set_cookie_params($lifetime = $config['cookie_lifetime'], $secure = $config['https_cookie'], $http_only = $config['http_only']);
