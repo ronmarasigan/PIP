@@ -4,5 +4,5 @@
     $config['error_controller'] = 'error';
     
     // Permitted controllers
-    $config['valid_controllers'] = array('error', 'main', 'test', 'sess');
+    $config['valid_controllers'] = array('error', 'main', 'test', 'sess', 'sessecho');
 ?>
