@@ -1,26 +1,27 @@
 <?php
 /*
- * PIP v0.5.3
+ * Ligero 0.01
+ * 
  */
-
-//Start the Session
-session_start(); 
+session_start(); //Inicio de Seccion 
 
 // Defines
 define('ROOT_DIR', realpath(dirname(__FILE__)) .'/');
-define('APP_DIR', ROOT_DIR .'application/');
+define('APP_DIR', ROOT_DIR .'ligero/application/');
 
 // Includes
-require(APP_DIR .'config/config.php');
-require(ROOT_DIR .'system/model.php');
-require(ROOT_DIR .'system/view.php');
-require(ROOT_DIR .'system/controller.php');
-require(ROOT_DIR .'system/pip.php');
+require(ROOT_DIR .'ligero/system/config.php');
+require(ROOT_DIR .'ligero/system/model.php');
+require(ROOT_DIR .'ligero/system/view.php');
+require(ROOT_DIR .'ligero/system/controller.php');
+require(ROOT_DIR .'ligero/system/ligero.php');
 
-// Define base URL
-global $config;
+
+global $config;// Define base URL
 define('BASE_URL', $config['base_url']);
+//Static
+define('STATIC_URL', $config['base_url']);
 
-pip();
+ligero();
 
 ?>

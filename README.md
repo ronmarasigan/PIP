@@ -1,28 +1,16 @@
 #Ligero
+"Pequeño pero Potente" pretende ser lo más simple posible de configurar y utilizar.
 
-Copia del Framework 
-@@
 https://github.com/mikecao/flight
 
-PIP is a tiny application framework built for people who use a LAMP stack. PIP aims to be as simple as possible to set up and use.
+## Requisitos
+* PHP 5.1 or greater- tratar de movernos un paso atras a la 4
+* MySQL 4.1.2 or greater -agregar otros motores sqlite
 
-Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) for more information and documentation.
+## Log
 
-## Requirements
+v0.1 - Initial version.
 
-* PHP 5.1 or greater
-* MySQL 4.1.2 or greater
-* The mod_rewrite Apache module
-
-## Installation
-
-* Download PIP and extract
-* Navigate to `application/config/config.php` and fill in your `base_url`
-* You are ready to rock! Point your browser to your `base_url` and hopefully see a welcome message.
-
-## Documentation
-
-Visit [http://gilbitron.github.com/PIP](http://gilbitron.github.com/PIP/) to see the documentation.
 
 ## License
 The MIT License (MIT)
