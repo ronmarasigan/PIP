@@ -21,13 +21,6 @@ class Controller {
 		require(APP_DIR .'plugins/'. strtolower($name) .'.php');
 	}
 	
-	public function loadHelper($name)
-	{
-		require(APP_DIR .'helpers/'. strtolower($name) .'.php');
-		$helper = new $name;
-		return $helper;
-	}
-	
 	public function redirect($loc)
 	{
 		global $config;
