@@ -9,7 +9,6 @@ class Error extends Controller {
 	{
 		$this->error404();
 	}
-	
 	/**
 	 * Encodes string for use in XML
 	 *
@@ -18,10 +17,9 @@ class Error extends Controller {
 	 */
 	function error404()
 	{
-		echo '<h1>404 Error</h1>';
-		echo '<p>Looks like this page doesn\'t exist</p>';
+		$template = $this->loadView('error');
+		$template->render();
 	}
-    
 }
 
 ?>

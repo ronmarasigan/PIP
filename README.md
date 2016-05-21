@@ -8,7 +8,6 @@ https://github.com/mikecao/flight
 * MySQL 4.1.2 
 
 ## Log
-
 v0.1 - Initial version.
 
 

@@ -28,7 +28,7 @@ global $config;
 // Define base URL
 define('BASE_URL', $config['base_url']);
 //URL para nuestro template
-define('STATIC_URL', $config['base_url'].'ligero/application/views/static/');
+define('STATIC_URL', $config['base_url'].'ligero/ligero/application/views/static/');
 
 
 

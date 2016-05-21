@@ -76,20 +76,20 @@ blockquote {
 }
 
 .main h1 {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: sans-serif;
     font-size: 50px;
     text-align: center;
     text-transform: capitalize;
     color: #fff;
 }
 .main h2 {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: sans-serif;
     font-size: 40px;
     text-align: center;
     color: #fff;
 }
 .main h3 {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family:  sans-serif;
     color: #fff;
 }
 .content {
