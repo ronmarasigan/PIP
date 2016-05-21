@@ -1,15 +1,28 @@
 <?php
-
+/**View 
+ *
+ * @author      Cesar Darinel Ortiz
+ */
 class View {
-
+	//var
 	private $pageVars = array();
 	private $template;
-
+	/**
+	 * Encodes string for use in XML
+	 *
+	 * @param       String $template 
+	 * @return      null
+	 */
 	public function __construct($template)
 	{
 		$this->template = APP_DIR .'views/'. $template .'.php';
 	}
-
+	/**
+	 * Encodes string for use in XML
+	 *
+	 * @param       String
+	 * @return      string
+	 */
 	public function set($var, $val)
 	{
 		$this->pageVars[$var] = $val;
