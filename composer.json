@@ -1,0 +1,14 @@
+{
+	"description": "The Ligero framework",
+	"name": "Ligero/framework",
+	"type": "project",
+	"homepage": "http://byetsrd.github.io/ligero/",
+	"license": "MIT",
+	"support": {
+		"wiki": "https://github.com/ByetsRd/ligero/wiki",
+		"source": "https://github.com/ByetsRd/ligero"
+	},
+	"require": {
+		"php": ">=5"
+	}
+}
