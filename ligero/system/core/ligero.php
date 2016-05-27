@@ -1,4 +1,5 @@
 <?php
+
 defined('APP_DIR') OR exit('-_- no eres Humano ?');
 
 function ligero() {
@@ -50,4 +51,5 @@ function dameURL(){
 $url=$_SERVER['REQUEST_URI'];
 return $url;
 }
+
 ?>

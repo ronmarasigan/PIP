@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ligero
  * Pequeño Pero Poderoso
@@ -25,6 +26,7 @@ global $config;
 define('BASE_URL', $config['base_url']);
 //URL para nuestro template
 define('STATIC_URL', $config['base_url'].'ligero/application/views/static/');
+
 //Arrancamos 
 ligero();
 
