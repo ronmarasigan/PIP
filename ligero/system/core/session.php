@@ -1,6 +1,6 @@
 <?php
+defined('APP_DIR') OR exit('-_- no eres Humano ?');
 
-class Sessionhelper {
 
 	function set($key, $val)
 	{
@@ -17,6 +17,6 @@ class Sessionhelper {
 		session_destroy();
 	}
 
-}
+
 
 ?>

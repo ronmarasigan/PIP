@@ -17,7 +17,7 @@ class Error extends Controller {
 	 */
 	function error404()
 	{
-		$template = $this->loadView('error');
+		$template = $this->loadView('public/error');
 		$template->render();
 	}
 }

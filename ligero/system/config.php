@@ -1,6 +1,6 @@
 <?php 
 
-$config['base_url'] = 'http://127.0.0.1/'; // Base URL including trailing slash (e.g. http://localhost/)
+$config['base_url'] = 'http://localhost:8080/'; // Base URL including trailing slash (e.g. http://localhost/)
 
 $config['default_controller'] = 'main'; // Default controller to load
 $config['error_controller'] = 'error'; // Controller used for errors (e.g. 404, 500 etc)

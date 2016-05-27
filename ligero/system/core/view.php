@@ -3,6 +3,9 @@
  *
  * @author      Cesar Darinel Ortiz
  */
+
+
+defined('APP_DIR') OR exit('-_- no eres Humano ?');
 class View {
 	//var
 	private $pageVars = array();
