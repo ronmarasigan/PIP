@@ -13,17 +13,13 @@ class Model {
             
     public function __construct() {
         global $config;// inicializamos config
-        //las variables de conexion 
-        $this->$db_name=$config['db_name'];
-        $this->$db_host=$config['db_host'];
-        $this->$db_username=$config['db_username'];
-        $this->$db_password=$config['db_password'];
+
          
         if ($config['db_Database'] == 'Sqlite') {
             $this->connection = new PDO(ROOT_DIR . 'ligero/system/core/temp/db/' . $config['db_name'] . '.db') or die('Error con sqlite, Exploto :D' . PDOException);
         } elseif ($config['db_Database'] == 'pgsql') {
             try {
-                 $this->connection = new PDO("pgsql:dbname=$db_name;port=5432;host=$db_host",$db_username, $db_password); 
+                 $this->connection = new PDO("pgsql:dbname=".$config['db_name'].";port=5432;host=".$config['db_host']."",$db_username, $db_password); 
                  $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 echo 'Falló la conexión: ' . $e->getMessage();
