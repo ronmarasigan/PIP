@@ -8,9 +8,9 @@ $config['error_controller'] = 'error'; // Controller used for errors (e.g. 404, 
 $config['db_Database'] = 'pgsql';
 
 //Database host (e.g. localhost)
-$config['db_host'] = 'ec2-54-235-254-199.compute-1.amazonaws.com'; // Database host (e.g. localhost)
-$config['db_name'] = 'd3i0rsjpfetora'; // Database name
-$config['db_username'] = 'szzrwduqoyaswj'; // Database username
-$config['db_password'] = 'rmC6DKyIMvRxdGLY-Uq1B20AXN'; // Database password
+$config['db_host'] = 'ec2-54-163-240-101.compute-1.amazonaws.com'; // Database host (e.g. localhost)
+$config['db_name'] = 'denaajto7o9704'; // Database name
+$config['db_username'] = 'qbrfkqkkquznev'; // Database username
+$config['db_password'] = 'iZ-sUx9wwigywhDDs32diHZCwA'; // Database password
 
 ?>
