@@ -27,6 +27,7 @@ define('BASE_URL', $config['base_url']);
 //URL para nuestro template
 define('STATIC_URL', $config['base_url'].'ligero/application/views/static/');
 
+
 //Arrancamos 
 ligero();
 

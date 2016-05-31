@@ -8,12 +8,12 @@ class Model {
 
     public function __construct() {
         global $config;
-        if ($config['db_Database'] == 'Sqlite') {
-            $this->connection = mysql_pconnect($config['db_host'], $config['db_username'], $config['db_password']) or die('MySQL Error: ' . mysql_error());
+       if ($config['db_Database'] == 'Sqlite') {
+           $this->connection = new PDO(ROOT_DIR . 'ligero/system/core/temp/db/'.$config['db_name'].'.db') or die('Error con sqlite, Exploto :D'.PDOException );
         } else {
             $this->connection = mysql_pconnect($config['db_host'], $config['db_username'], $config['db_password']) or die('MySQL Error: ' . mysql_error());
             mysql_select_db($config['db_name'], $this->connection);
-        }
+       }
     }
 
     public function escapeString($string) {
@@ -52,7 +52,7 @@ class Model {
     }
 
     public function execute($qry) {
-        $exec = mysql_query($qry) or die('MySQL Error: ' . mysql_error());
+        $exec = $connection->query($qry) or die(' Error: ');
         return $exec;
     }
 
