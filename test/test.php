@@ -1,7 +1,7 @@
 
 
 <?php
-    require('../Calculator.php');
+    require('Calculator.php');
 //require('../index.php');
 
 class tests extends PHPUnit_Framework_TestCase
