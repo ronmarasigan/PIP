@@ -1,7 +1,8 @@
 
 
 <?php
-require('../ligero/system/core/Calculator.php');
+require('../Calculator.php');
+require('../index.php');
 
 class CalculatorTests extends PHPUnit_Framework_TestCase
 {
