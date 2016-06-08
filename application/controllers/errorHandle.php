@@ -1,6 +1,6 @@
 <?php
 
-class Error extends Controller {
+class ErrorHandle extends Controller {
 	
 	function index()
 	{
