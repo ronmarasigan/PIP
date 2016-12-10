@@ -55,7 +55,7 @@ class Model {
 
 	public function execute($qry)
 	{
-		$exec = mysqli_query($qry) or die('MySQL Error: '. mysqli_error());
+		$exec = mysqli_query($qry) or die('MySQL Error: '. mysqli_error($this->connection));
 		return $exec;
 	}
     
