@@ -11,6 +11,11 @@ function pip()
 	
 	// Get request url and script url
 	$request_url = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '';
+
+	$temp = (strpos($_SERVER["REQUEST_URI"], "?")) ? strpos($_SERVER["REQUEST_URI"],"?") : strlen($_SERVER["REQUEST_URI"]);
+
+	$request_url = substr($_SERVER['REQUEST_URI'],0,$temp);
+
 	$script_url  = (isset($_SERVER['PHP_SELF'])) ? $_SERVER['PHP_SELF'] : '';
     	
 	// Get our url path and trim the / of the left and the right
@@ -25,6 +30,7 @@ function pip()
 
 	// Get our controller file
     $path = APP_DIR . 'controllers/' . $controller . '.php';
+    
 	if(file_exists($path)){
         require_once($path);
 	} else {
@@ -33,11 +39,14 @@ function pip()
 	}
     
     // Check the action exists
+
     if(!method_exists($controller, $action)){
         $controller = $config['error_controller'];
         require_once(APP_DIR . 'controllers/' . $controller . '.php');
         $action = 'index';
     }
+
+
 	
 	// Create object and call method
 	$obj = new $controller;
