@@ -31,7 +31,7 @@ Example:
     <link rel="stylesheet" href="{{ BASE_URL }}/css/app.css">
 ```
 
-You can also write any kind of PHP login inside.
+You can also write any kind of PHP logic inside.
 ```HTML
     <h1>{{ $name === 'Bob' ? 'You are bob' : 'You are not bob' }}</h1>
 ```
