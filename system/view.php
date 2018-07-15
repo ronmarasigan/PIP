@@ -19,11 +19,19 @@ class View {
 	{
 		extract($this->pageVars);
 
-		ob_start();
-		require($this->template);
-		echo ob_get_clean();
+        $contents = file_get_contents($this->template);
+
+        $variables = array_merge($GLOBALS, get_defined_vars(), get_defined_constants());
+
+        $interpolated = preg_replace_callback('/{{\s*(.*?)\s*}}/i', function($matches) use ($variables) {
+            extract($variables);
+
+            return eval("return htmlspecialchars(" . $matches[1] . ");");
+        }, $contents);
+
+		echo $interpolated;
 	}
-    
+
 }
 
 ?>

@@ -8,18 +8,17 @@ class Model {
 	{
 		global $config;
 		
-		$this->connection = mysql_pconnect($config['db_host'], $config['db_username'], $config['db_password']) or die('MySQL Error: '. mysql_error());
-		mysql_select_db($config['db_name'], $this->connection);
+		$this->connection = mysqli_connect($config['db_host'], $config['db_username'], $config['db_password'], $config['db_name'], 3306) or die('MySQL Error: '. $this->connection->error());
 	}
 
 	public function escapeString($string)
 	{
-		return mysql_real_escape_string($string);
+		return $this->connection->real_escape_string($string);
 	}
 
 	public function escapeArray($array)
 	{
-	    array_walk_recursive($array, create_function('&$v', '$v = mysql_real_escape_string($v);'));
+	    array_walk_recursive($array, create_function('&$v', '$v = $this->connection->escape_string($v);'));
 		return $array;
 	}
 	
@@ -45,17 +44,17 @@ class Model {
 	
 	public function query($qry)
 	{
-		$result = mysql_query($qry) or die('MySQL Error: '. mysql_error());
+		$result = $this->connection->query($qry) or die('MySQL Error: '. $this->connection->error);
 		$resultObjects = array();
 
-		while($row = mysql_fetch_object($result)) $resultObjects[] = $row;
+		while($row = $result->fetch_object()) $resultObjects[] = $row;
 
 		return $resultObjects;
 	}
 
 	public function execute($qry)
 	{
-		$exec = mysql_query($qry) or die('MySQL Error: '. mysql_error());
+		$exec = $this->connection->query($qry) or die('MySQL Error: '. $this->connection->error());
 		return $exec;
 	}
     
