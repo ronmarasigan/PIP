@@ -1,4 +1,5 @@
-### This repo is no longer maintained. If you would like to take over ownership please [get in touch](mailto:&#103;&#105;&#108;&#098;&#101;&#114;&#116;&#064;&#112;&#101;&#108;&#108;&#101;&#103;&#114;&#111;&#109;&#046;&#109;&#101;).
+### PIP has a new version today and was renamed to Babaeron. I added some features to facilitate more learnings and understanding. Check it here (https://github.com/BABAERON/Babaeron-PHP-MVC-Framework
+)
 
 # PIP
 
