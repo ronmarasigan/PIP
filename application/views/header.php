@@ -1,9 +1,19 @@
+<?php
+/**
+ * Header View 
+ *
+ * This should be included at the top of all other views
+ *
+ * @author Gilbert Pellegrom
+ * @package PIP
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     
-    <title>Welcome to PIP</title>
+    <title><?php echo ( isset($title)) ? $title : ''; ?></title>
     <meta name="description" content="">
     <meta name="author" content="">
     

@@ -1,33 +1,32 @@
 <?php
-
+/**
+ * Controller base class
+ *
+ * This is the base class for a controller object
+ *
+ * @author Gilbert Pellegrom
+ * @package PIP
+ */
 class Controller {
 	
-	public function loadModel($name)
-	{
-		require(APP_DIR .'models/'. strtolower($name) .'.php');
+    /**
+     * Load object
+     * @access public
+     */
+	public $load;  // Load object
 
-		$model = new $name;
-		return $model;
-	}
-	
-	public function loadView($name)
-	{
-		$view = new View($name);
-		return $view;
-	}
-	
-	public function loadPlugin($name)
-	{
-		require(APP_DIR .'plugins/'. strtolower($name) .'.php');
-	}
-	
-	public function loadHelper($name)
-	{
-		require(APP_DIR .'helpers/'. strtolower($name) .'.php');
-		$helper = new $name;
-		return $helper;
-	}
-	
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->load = new Load();          
+    }
+
+    /*
+     * Redirect the browser to a new location
+     * @param string $loc Location path
+     */
 	public function redirect($loc)
 	{
 		global $config;

@@ -1,5 +1,15 @@
 <?php
-
+/**
+ * PIP main script
+ *
+ * @author Gilbert Pellegrom
+ * @package PIP
+ */
+/**
+ * Main PIP function
+ *
+ * Gets URL from request builds appropriate controller and calls requested function
+ */
 function pip()
 {
 	global $config;
