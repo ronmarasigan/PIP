@@ -10,6 +10,7 @@ class Model {
 		
 		$this->connection = mysql_pconnect($config['db_host'], $config['db_username'], $config['db_password']) or die('MySQL Error: '. mysql_error());
 		mysql_select_db($config['db_name'], $this->connection);
+		mysql_set_charset($config['db_encoding']);
 	}
 
 	public function escapeString($string)
