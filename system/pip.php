@@ -12,6 +12,12 @@ function pip()
 	// Get request url and script url
 	$request_url = (isset($_SERVER['REQUEST_URI'])) ? $_SERVER['REQUEST_URI'] : '';
 	$script_url  = (isset($_SERVER['PHP_SELF'])) ? $_SERVER['PHP_SELF'] : '';
+    
+	// If this a cron job, then use the server arguments as the url
+	// format your cron command like this: "/path/to/www/index.php /controller/action"
+	if (!$request_url && isset($_SERVER['SHELL']) && isset($_SERVER['argv']) && isset($_SERVER['argv'][1])) {
+		$request_url = $_SERVER['argv'][1];
+	}
     	
 	// Get our url path and trim the / of the left and the right
 	if($request_url != $script_url) $url = trim(preg_replace('/'. str_replace('/', '\/', str_replace('index.php', '', $script_url)) .'/', '', $request_url, 1), '/');
